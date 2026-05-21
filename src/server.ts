@@ -22,9 +22,22 @@ app.get("/", (req : Request , res : Response) => {
 });
 
 
+//? Request ta amon chilo Postman er 
+// {
+//     "name" : "mjh shikder",
+//     "email": "mjh@mjhshikder.com",
+//     "password": 12345
+// }
+
 //* POST Method
 app.post('/', async (req : Request, res: Response) => {
-  console.log(req.body);
+//  console.log(req.body);
+// const body = req.body
+  const {name, email, password} = req.body;
+  res.status(201).json({
+    message: "Created",
+    data: {name, email},
+  })
   
 })
 
