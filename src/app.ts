@@ -35,7 +35,7 @@ app.get("/", (req: Request, res: Response) => {
 //     "password": 12345
 // }
 
-//* connection to router POST Method
+//? connection to router POST Method
 app.use('/api/users', userRoute)
 
 
