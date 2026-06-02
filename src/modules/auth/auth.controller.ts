@@ -5,7 +5,7 @@ import { authService } from "./auth.service";
 const loginUser = async (req: Request, res: Response) => {
     try {
         
-        const result = await authService.loginUserIntoDB(req.body)
+        const result = await authService.loginUserIntoDB(req.body) // service er funciton ke call dici from auth.service.ts
         
         res.status(201).json({
           success: true,

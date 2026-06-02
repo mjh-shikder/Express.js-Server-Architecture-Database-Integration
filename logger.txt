@@ -1,0 +1,2 @@
+ Method -> GET Time -> 1780358914577 URL -> /api/users 
+ Method -> GET Time -> 1780358932973 URL -> / 

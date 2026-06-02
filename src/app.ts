@@ -7,6 +7,7 @@ import express, {
 import { userRoute } from "./modules/user/user.route";
 import { profileRoute } from "./modules/profile/profile.route";
 import { authRouter } from "./modules/auth/auth.route";
+import fs from "fs"
 
 const app: Application = express();
 
@@ -15,6 +16,16 @@ app.use(express.json());
 app.use(express.text());
 //? sudhu urlencoded Nested object recive kore na. O jeno nested data {name:{firstName:A, lastname:B}} o ney ei jonno extended : true dewa hoiche
 app.use(express.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+  console.log("Method - URL - Time:", req.method, req.url, Date.now());
+  const log = `\n Method -> ${req.method} Time -> ${Date.now()} URL -> ${req.url} \n`;
+  fs.appendFile('logger.txt', log, (err) => {
+    console.log(err);
+    
+  })
+  next()
+})
 
 //* Root Route
 app.get("/", (req: Request, res: Response) => {
