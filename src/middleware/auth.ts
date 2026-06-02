@@ -2,7 +2,14 @@ import type { NextFunction, Request, Response } from "express";
 import jwt, { type JwtPayload } from "jsonwebtoken"
 import config from "../config";
 import { pool } from "../db";
-const auth = () => {
+import type { ROLES } from "../types";
+
+
+const auth = (...roles: ROLES[]) => {
+  
+  console.log(roles);
+  
+
     return async (req: Request, res: Response, next: NextFunction) => {
     try {
       // console.log("this is protected route");
@@ -42,11 +49,19 @@ const auth = () => {
       }
 
       //? user active validation
-      if (!user.is_active) {
+      if (!user?.is_active) {
         res.status(403).json({
           sucess: false,
           message: "Forbidden access!",
         });
+      }
+
+
+      if (roles.length && !roles.includes(user.role)) {
+          res.status(422).json({
+            sucess: false,
+            message: "Forbidden access!",
+          });
       }
 
         //? ei khane reqest er moddhe user ta set kora holo 
