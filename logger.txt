@@ -1,2 +1,18 @@
  Method -> GET Time -> 1780358914577 URL -> /api/users 
  Method -> GET Time -> 1780358932973 URL -> / 
+
+ Method -> GET Time -> 1780359403910 URL -> / 
+
+ Method -> GET Time -> 1780359427459 URL -> / 
+
+ Method -> GET Time -> 1780359427766 URL -> /favicon.ico 
+
+ Method -> GET Time -> 1780359438532 URL -> / 
+
+ Method -> GET Time -> 1780359444901 URL -> /api/users 
+
+ Method -> GET Time -> 1780359453034 URL -> /api/products 
+
+ Method -> GET Time -> 1780359457260 URL -> /api/product 
+
+ Method -> GET Time -> 1780359464060 URL -> /api/products 
