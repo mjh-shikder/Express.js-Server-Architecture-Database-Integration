@@ -14,6 +14,12 @@ const auth = (...roles: ROLES[]) => {
     try {
       // console.log("this is protected route");
       //   console.log(req.headers.authorization);
+
+      // 1. Check if the token exist
+      // 2. Verify the token 
+      // 3. Find the user into database
+      // 4. If the user active or not?
+
       const token = req.headers.authorization;
 
       if (!token) {
