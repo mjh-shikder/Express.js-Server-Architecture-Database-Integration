@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import { pool } from "../../db";
 import { userService } from "./user.service";
+import sendResponse from "../../utility/sendResponse";
 
 //? POST
 const createUser = async (req: Request, res: Response) => {
@@ -12,10 +13,14 @@ const createUser = async (req: Request, res: Response) => {
     const result = await userService.createUserIntoDB(req.body);
     // console.log(result);
 
-    res.status(201).json({
+    sendResponse(res, {
       message: "User Created Successfully",
       data: result.rows[0],
+      statusCode: 201,
+      success: true
     });
+    
+
   } catch (error: any) {
     res.status(500).json({
       message: "Email Already Exists",
