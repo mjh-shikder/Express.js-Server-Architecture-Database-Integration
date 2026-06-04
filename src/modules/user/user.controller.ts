@@ -22,10 +22,14 @@ const createUser = async (req: Request, res: Response) => {
     
 
   } catch (error: any) {
-    res.status(500).json({
+    sendResponse(res, {
       message: "Email Already Exists",
-      Error: error,
+      error: error,
+      statusCode: 500,
+      success: false,
+
     });
+    res.status(500).json();
   }
 };
 
